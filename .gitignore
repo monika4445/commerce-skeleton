@@ -1,0 +1,44 @@
+# Logs and temp files
+logs/
+*.log
+*.tmp
+*.pid
+*.swp
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.test
+.env.development
+.env.staging
+
+# IDE files
+.vscode/
+.idea/
+
+# Miscellaneous
+*.DS_Store
+*.class
+*.psd
+*.pdf
+*.zip
+*.gz
+*.tar
+*.tar.gz
+*.tgz
+*.jar
+*.war
+*.ear
+*.iml
+*.log
