@@ -55,7 +55,7 @@ static async login(email, password) {
         const passwordMatch = await bcrypt.compare(password, row.password);
 
         if (email === row.email && passwordMatch) {
-          const token = generateAccessToken({ email: row.email, is_admin: row.is_admin });
+          const token = generateAccessToken({ email: row.email, is_admin: row.is_admin, is_verified: row.is_verified });
           resolve(token);
         } else {
           reject(new Error("Wrong credentials"));

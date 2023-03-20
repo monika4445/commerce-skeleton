@@ -16,7 +16,12 @@ function authenticateToken(req, res, next) {
 		return res.sendStatus(403)
 	  }
 	  req.user = user
-	  next()
+	  if(user.is_verified === 1){
+		next()
+	  }
+	  else{
+		return res.sendStatus(401)
+	  }
 	})
   }
 
