@@ -16,6 +16,10 @@ class ProductService {
   }
 
   static async getProductById(id){
+    if (!id) {
+      res.status(400).send('Please provide the "id" parameter.');
+      return;
+    }
     return new Promise((resolve, reject) => {
       db.get(`SELECT * FROM products WHERE id=${id}`, (err, row) => {
         if (err) {
@@ -77,6 +81,10 @@ class ProductService {
 }
 
 static async updateProductById(id, name, description, price, image){
+  if (!id) {
+    res.status(400).send('Please provide the "id" parameter.');
+    return;
+  }
   return new Promise((resolve, reject) => {
     db.run(
       'UPDATE products SET name = ?, description = ?, price = ?, image = ? WHERE id = ?',
@@ -99,6 +107,10 @@ static async updateProductById(id, name, description, price, image){
 }
 
 static async partialUpdateProductById(id, updates){
+  if (!id) {
+    res.status(400).send('Please provide the "id" parameter.');
+    return;
+  }
   const setValues = Object.keys(updates).map(update => `${update} = ?`).join(', ');
   const values = Object.values(updates);
 
